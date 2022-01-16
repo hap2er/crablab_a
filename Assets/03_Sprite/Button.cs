@@ -7,6 +7,11 @@ namespace CA
 {
     public class Button : MonoBehaviour
     {
+        [SerializeField]
+        private Piece.Type type;
+
+
+
 
         private RectTransform tr;
         public Rect rect
@@ -35,7 +40,8 @@ namespace CA
 
         public void OnTouchBegan()
         {
-            Debug.Log(this.gameObject + " 땃쥐.");
+            if (GameSceneManager.Instance != null)
+                GameSceneManager.Instance.addPiece(type);
         }
 
     }

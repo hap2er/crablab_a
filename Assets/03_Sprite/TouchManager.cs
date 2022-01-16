@@ -85,7 +85,7 @@ public class TouchManager : MonoBehaviour
 
         if (touchCount != 0)
         {
-            for (int i = 0; i < 1; ++i)
+            for (int i = 0; i < touchCount; ++i)
             {
                 // touch position coordinate
                 Vector2 touchPosition = Vector2.zero;
@@ -240,6 +240,7 @@ public class TouchManager : MonoBehaviour
         // get key input
         if (keyEvent != null && Input.anyKeyDown)
         {
+
             foreach (KeyCode keyCode in System.Enum.GetValues(typeof(KeyCode)))
             {
                 if (Input.GetKeyDown(keyCode))
