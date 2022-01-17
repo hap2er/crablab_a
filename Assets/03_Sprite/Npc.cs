@@ -7,8 +7,16 @@ namespace CA
 {
     public class Npc : MonoBehaviour
     {
+        
+
         [SerializeField]
         private List<int> answer = new List<int>();
+
+
+        private List<int> burger = new List<int>();
+
+        private int except = (int)Piece.Type.None;
+
 
         [SerializeField]
         private int maxTime = 30;
@@ -16,19 +24,26 @@ namespace CA
         public  Transform tr;
         Stack<Piece> piece = new Stack<Piece>();
         public void OnEnable()
+        {          
+        }
+
+
+        public void setup(List<int> _burger,int _except,int _time)
         {
-            answer.Add(0);
-            answer.Add(2);
-            answer.Add(1);
-            answer.Add(2);
-            answer.Add(0);
-            answer.Add(1);
-
-            piece.Clear();
+            burger.Clear();
+            answer.Clear();
 
 
-            
-            showAnswer();
+            burger = _burger;
+            except = _except;
+
+            for(int i=0;i< _burger.Count;i++)
+            {
+                if (_burger[i] != _except)
+                    answer.Add(_burger[i]);
+            }
+
+            showOrder();
             GameSceneManager.Instance.setTime(maxTime);
         }
 
@@ -52,7 +67,7 @@ namespace CA
         }
 
 
-        public void showAnswer()
+        public void showOrder()
         {
             int y = 0;
             foreach (int value in answer)
