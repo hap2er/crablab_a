@@ -1,3 +1,5 @@
 # crablab_a
 .
-ca-app-pub-3940256099942544~3347511713
+admob test key:ca-app-pub-3940256099942544~3347511713
+
+

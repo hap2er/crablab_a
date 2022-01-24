@@ -1,0 +1,18 @@
+﻿번호,이름,난이도,제외 재료,재료01,재료02,재료03,재료04,재료05,재료06,재료07,재료08,재료09,재료10
+1,더블치즈버거,easy,,Bun,Patty,Cheese,Patty,Bun,,,,,
+2,베이직버거,easy,,Bun,Lettuce,Patty,Tomato,Bun,,,,,
+3,치즈불고기버거,easy,,Bun,RedOnion,Cheese,Patty,Bun,,,,,
+4,비건버거,easy,,Bun,Lettuce,Mushroom,Bun,,,,,,
+5,베이컨버거,easy,,Bun,Tomato,Bacon,Lettuce,Bun,,,,,
+6,미트버거,easy,,Bun,Patty,Bacon,Bun,,,,,,
+7,베이컨디럭스버거,normal,,Bun,Bacon,Mushroom,Lettuce,Tomato,Bun,,,,
+8,트리플치즈버거,normal,,Bun,Patty,Cheese,Cheese,Patty,Cheese,Bun,,,
+9,새콤버거,normal,,Bun,Tomato,Cheese,Tomato,Lettuce,Bun,,,,
+10,머시룸버거,normal,,Bun,Lettuce,RedOnion,Patty,Mushroom,Lettuce,Bun,,,
+11,고기번버거,normal,,Patty,Tomato,Lettuce,Cheese,Tomato,Patty,,,,
+12,콰트로치즈버거,hard,,Bun,Cheese,Patty,Lettuce,Tomato,Cheese,RedOnion,Cheese,Cheese,Bun
+13,프리미엄비건버거,hard,,Bun,Lettuce,Tomato,RedOnion,RedOnion,Mushroom,Lettuce,Bun,,
+14,프리미엄비건버거,hard,Tomato,Bun,Lettuce,Tomato,RedOnion,RedOnion,Mushroom,Lettuce,Bun,,
+15,내장파괴버거,hard,,Bun,Tomato,Lettuce,Patty,Cheese,Mushroom,Tomato,Bacon,Lettuce,Bun
+16,베이컨디럭스버거,hard,Patty,Bun,Bacon,Mushroom,Lettuce,Tomato,Bun,,,,
+17,베이직버거,hard,Lettuce,Bun,Lettuce,Patty,Tomato,Bun,,,,,

@@ -13,16 +13,18 @@ namespace CA
 
         [System.Serializable]
         public enum Type
-        {        
-            Piece01,
-            Piece02,
-            Piece03,
-            Piece04,
-            Piece05,
-            Piece06,
-            Piece07,
-            Piece08,
-            None
+        {
+            None,
+            Bun,
+            Patty,
+            Lettuce,
+            Tomato,
+            Cheese,
+            RedOnion,
+            Bacon,
+            Mushroom,
+            BadOrder
+
 
         }
 
@@ -31,6 +33,10 @@ namespace CA
 
         [SerializeField]
         public int width;
+
+        public Sprite[] sprites = null;
+        public Vector2[] sizes = null;
+
 
         private bool _isActive=false;
         public bool isActive
@@ -70,14 +76,36 @@ namespace CA
         }
 
 
-        private void onPiece()
+        private void onPiece(int type = 0)
         {
             _image.enabled = true;
         }
 
+        public void changeSprite(int type = 0)
+        {
+            if (sprites == null || sizes == null)
+                return;
+            if (sprites.Length == 0 || sizes.Length == 0)
+                return;
+
+            _image.sprite = sprites[type];
+            tr.sizeDelta = sizes[type];
+        }
+
+
         private void offPiece()
         {
             _image.enabled = false;
+
+            if (sprites == null || sizes == null)
+                return;
+
+            if (sprites.Length == 0 || sizes.Length == 0)
+                return;
+
+            _image.sprite = sprites[0];
+            tr.sizeDelta = sizes[0];
+
         }
 
 
@@ -88,11 +116,11 @@ namespace CA
 
             if(isPush)
             {
-                _image.enabled = true;
+                onPiece();
             }
             else
             {
-                _image.enabled = false;
+                offPiece();
             }
             yield return new WaitForSeconds(0.2f);
         }
@@ -117,6 +145,19 @@ namespace CA
         void Update()
         {
 
+        }
+
+        private void OnDisable()
+        {
+
+            if (sprites == null || sizes == null)
+                return;
+
+            if (sprites.Length == 0 || sizes.Length == 0)
+                return;
+
+            _image.sprite = sprites[0];
+            tr.sizeDelta = sizes[0];
         }
     }
 
