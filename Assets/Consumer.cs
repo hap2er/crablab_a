@@ -16,7 +16,7 @@ namespace CA
         public void Start()
         {
             tr = this.gameObject.GetComponent<RectTransform>();
-            HV.Animation.DoMove(transform,new Vector2(300,0),new Vector2(-1680,0), 10, true, false,true);
+            HV.MotionHelper.DoMove(transform,new Vector2(300,0),new Vector2(-1680,0), 10, true, false,true);
         }
     }
 

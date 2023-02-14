@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace HV
 {
-    public class Animation : MonoBehaviour
+    public class MotionHelper : MonoBehaviour
     {
         public static To DoMove(Transform tr, Vector3 to, float time,bool loop,bool restart, bool unscaleTime = false)
         {
