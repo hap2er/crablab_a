@@ -12,14 +12,13 @@ public class Initializer : MonoBehaviour
     void Start()
     {
 
-        //싱글톤이 아니라 조금 애매해짐
-
         if (Adapter.Instance != null)
             Debug.Log("Adapter Create.");
 
         //admob 초기화
         AdmobManager.Instance.initAdmob();
 
+     
         //프레임 고정
         Application.targetFrameRate = 60;
 

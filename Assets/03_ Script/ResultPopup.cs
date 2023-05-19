@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-
+using Firebase.Analytics;
 
 
 namespace CA
@@ -13,6 +13,10 @@ namespace CA
 
         public Text scoreText;
         public Text bestScoreText;
+
+
+
+       
         public void ShowAdButton()
         {
             ButtonSound();
@@ -36,6 +40,12 @@ namespace CA
             scoreText.text = GameSceneManager.Instance.score.ToString();
             bestScoreText.text = GameSceneManager.Instance.maxScore.ToString();
 
+
+            int round = GameSceneManager.Instance.round;
+
+            Debug.Log("Round : "+round);
+            Firebase.Analytics.FirebaseAnalytics.LogEvent("HbgStage", "HbgNo", round.ToString());
+
             base.OnEnable();
         }
 
@@ -51,6 +61,7 @@ namespace CA
             if (state == Adapter.RewardedState.Success)
             {
                 GameSceneManager.Instance.goon();
+                Adapter.Instance.newRewarded = Adapter.RewardedState.None;
                 this.gameObject.SetActive(false);
             }
               

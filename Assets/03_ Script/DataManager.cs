@@ -20,7 +20,7 @@ namespace CA
     public class Map
     {
         public string name;
-        public int time;
+        public float time;
         public int except;
         public List<int> burger;
     }
@@ -58,7 +58,7 @@ namespace CA
         private Map badMap = null;
         public TextAsset burger_csv;
 
-        //public List<Map> mapPool = new List<Map>();
+
         public Dictionary<Lv, List<Map>> maps = new Dictionary<Lv, List<Map>>();
         public void load()
         {
@@ -105,7 +105,7 @@ namespace CA
 
                 Map map = new Map();
                 map.burger = list;
-                map.time = 10;
+                map.time = 10.0f;
                 map.name = name;
                 map.except = except;
 
@@ -122,7 +122,7 @@ namespace CA
             List<int> _list = new List<int>();
             _list.Add((int)Piece.Type.BadOrder);
             badMap.burger = _list;
-            badMap.time = 2;
+            badMap.time = 1.5f;
             badMap.name = "JIN SANG";
             badMap.except = 0;
 
@@ -209,7 +209,7 @@ namespace CA
                 _list.Add((int)Piece.Type.Bun);
 
                 randMap.burger = _list;
-                randMap.time = 10;
+                randMap.time = 10.0f;
                 randMap.name = string.Format("Ranadom {0:0000}", count);
 
                 

@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id">
+  <string name="gcm_defaultSenderId" translatable="false">531352213933</string>
+  <string name="google_storage_bucket" translatable="false">i-m-a-burger.appspot.com</string>
+  <string name="project_id" translatable="false">i-m-a-burger</string>
+  <string name="google_api_key" translatable="false">AIzaSyD8gi7a2xq4nX9W321gU0zTM_VZJoX96P4</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyD8gi7a2xq4nX9W321gU0zTM_VZJoX96P4</string>
+  <string name="google_app_id" translatable="false">1:531352213933:android:1ffe5048a8ed5b75eda924</string>
+  <string name="default_web_client_id" translatable="false">531352213933-mdgj8gma97u1qa9tp9pviehques9l09v.apps.googleusercontent.com</string>
+</resources>

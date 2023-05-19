@@ -33,17 +33,27 @@ namespace CA
         bool isStay = true;
 
 
-        public ImageAnimation anim;
+        public ImageAnimation character;
 
+        public RectTransform imageTr;
 
         public GameObject angryEffect;
+        public GameObject waterEffect;
+
+
+        public Sprite[] sprites;
 
         public void OnEnable()
         {
             //npc켜기
             isStay = true;
-            anim.start(0);
+           
 
+            int rand = Random.Range(0, sprites.Length);
+            character.image.sprite = sprites[rand];
+            character.gameObject.SetActive(true);
+            character.start(0);
+            imageTr = character.GetComponent<RectTransform>();
         }
 
 
@@ -84,7 +94,7 @@ namespace CA
         {
             bool val = true;
 
-            //아무것도 없으면 그냥 꺼져라
+            //아무것도 없으면 넘기기
             if (list.Count == 0)
                 return false;
 
@@ -205,10 +215,14 @@ namespace CA
             if (this.gameObject.activeSelf == false)
                 return;
 
+            if (GameSceneManager.Instance.state != GameSceneManager.State.Play)
+                return;
+                
 
             if (SoundManager.Instance != null)
                 SoundManager.Instance.StartEffect(Sound.Water);
 
+            waterEffect.SetActive(true);
 
             //진상이면 얌전히 퇴장
             if (burger.Count == 1 && burger[0] == (int)Piece.Type.BadOrder)
@@ -224,7 +238,7 @@ namespace CA
 
             
             GameSceneManager.Instance.washNpc();
-
+            //StartCoroutine(waterAnim());
 
         }
 
@@ -238,10 +252,13 @@ namespace CA
 
             }
 
+
+            character.gameObject.SetActive(false);
+
             text.text = "";
             burgerTr.parent.gameObject.SetActive(false);
             exceptTr.parent.gameObject.SetActive(false);
-
+            waterEffect.SetActive(false);
 
             if (isTake)
                 GameSceneManager.Instance.addScore(answer.Count * 10);

@@ -4,13 +4,9 @@ using UnityEngine;
 
 public class Adapter : MonoBehaviour
 {
-
-
     public enum RewardedState
-    {
-        //
+    { 
         None,
-
         Show,
         Fail,
         Success
@@ -59,6 +55,8 @@ public class Adapter : MonoBehaviour
 
     public void Update()
     {
+        //Event로 전달 받을 경우 전달이 안되거나, 게임이 터지는 경우가 있을 수 있음.
+
         //상태 변경
         if(nowRewarded != newRewarded)
         {

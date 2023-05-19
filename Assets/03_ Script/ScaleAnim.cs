@@ -14,6 +14,7 @@ public class ScaleAnim : MonoBehaviour
     }
     private void OnEnable()
     {
+        CA.SoundManager.Instance.StartEffect(CA.Sound.Angry);
         StartCoroutine(anim());
     }
 

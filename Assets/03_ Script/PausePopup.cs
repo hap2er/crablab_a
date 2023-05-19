@@ -5,7 +5,9 @@ using UnityEngine;
 
 namespace CA
 {
-
+    /// <summary>
+    /// 일시정지
+    /// </summary>
     public class PausePopup : Popup
     {
 
@@ -16,20 +18,30 @@ namespace CA
         {
             if (SoundManager.Instance.isSound)
             {
-                soundOffButton.SetActive(true);
-                soundOnButton.SetActive(false);
-            }
-            else
-            {
                 soundOffButton.SetActive(false);
                 soundOnButton.SetActive(true);
             }
+            else
+            {
+
+                soundOffButton.SetActive(true);
+                soundOnButton.SetActive(false);
                
+            }
 
 
 
+            GameSceneManager.Instance.blindOrder(true);
             base.OnEnable();
         }
+
+        public override void OnDisable()
+        {
+            GameSceneManager.Instance.blindOrder(false);
+
+            base.OnDisable();
+        }
+
 
         public void homeButton()
         {
@@ -38,14 +50,15 @@ namespace CA
         public void soundOn()
         {
             SoundManager.Instance.onEffect();
-            soundOffButton.SetActive(true);
-            soundOnButton.SetActive(false);
+            soundOffButton.SetActive(false);
+            soundOnButton.SetActive(true);
         }
         public void soundOff()
         {            
             SoundManager.Instance.offEffect();
-            soundOffButton.SetActive(false);
-            soundOnButton.SetActive(true);
+            soundOffButton.SetActive(true);
+            soundOnButton.SetActive(false);
+          
         }
     }
 }

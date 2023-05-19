@@ -149,7 +149,7 @@ namespace CA
         /// <summary>
         /// 라운드 수
         /// </summary>
-        private int round = 0;
+        public int round = 0;
 
 
         public Lv level;
@@ -495,7 +495,7 @@ namespace CA
         /// </summary>
         public void washNpc()
         {
-            StartCoroutine(boomWater());
+            //StartCoroutine(boomWater());
         }
 
         #endregion
@@ -517,20 +517,6 @@ namespace CA
 
 
         /// <summary>
-        /// 네네... 물벼락 드세요... 
-        /// </summary>
-        /// <returns></returns>
-        IEnumerator boomWater()
-        {
-            waterImage.gameObject.SetActive(true);
-            
-            yield return new WaitForSeconds(0.25f);
-
-            waterImage.gameObject.SetActive(false);
-        }
-
-
-        /// <summary>
         /// 진상에게는 물이 약이다.
         /// </summary>
         public void givemeWater()
@@ -538,28 +524,26 @@ namespace CA
             waterButton.gameObject.SetActive(true);
         }
 
-        ///// <summary>
-        ///// 고객의 주문에는 물이 필요 없어요.
-        ///// </summary>
-        //public void getoutWater()
-        //{
-        //    waterImage.gameObject.SetActive(false);
-        //    waterButton.gameObject.SetActive(false);
-        //}
 
-
-
-
+        /// <summary>
+        /// 리워드 광고 송출
+        /// </summary>
         public void ShowRewardAD()
         {
             AdmobManager.Instance.showRewardAd();
         }
 
-
+        /// <summary>
+        /// 이어하기
+        /// </summary>
         public void goon()
         {
             state = State.Idle;
         }
+
+        /// <summary>
+        /// 재시작
+        /// </summary>
         public void restart()
         {
             if (maxScore< score)
@@ -567,15 +551,6 @@ namespace CA
                 maxScore = score;
                 PlayerPrefs.SetInt("MaxScore", score);
             }
-
-            //StopAllCoroutines();
-
-            //state = State.Idle;
-            //round = 0;
-            //score = 0;
-            //scoreText.text = score.ToString();
-
-            //newRecordImage.gameObject.SetActive(false);
 
             UnityEngine.SceneManagement.SceneManager.LoadScene(ConstantData.SCENE_TITLE);
         }
@@ -651,6 +626,14 @@ namespace CA
         {
             if (SoundManager.Instance != null)
                 SoundManager.Instance.StartEffect(Sound.Button);
+        }
+        public GameObject orderSecret;
+        public void blindOrder(bool isBlind)
+        {
+            if (isBlind)
+                orderSecret.SetActive(true);
+            else
+                orderSecret.SetActive(false);
         }
 
     }

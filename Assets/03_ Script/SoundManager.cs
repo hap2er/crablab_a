@@ -27,7 +27,10 @@ namespace CA
         Burger05,
         Burger06,
         Burger07,
-        Burger08
+        Burger08,
+
+
+        Angry
 
 
     }
@@ -81,6 +84,17 @@ namespace CA
         // Start is called before the first frame update
         void Start()
         {
+            int s = PlayerPrefs.GetInt("isSound", 1);
+            if (s==1)
+            {
+                isSound = true;
+            }
+            else
+            {
+                isSound = false;
+            }
+
+
             if (isSound == false)
                 return;
 
@@ -133,6 +147,9 @@ namespace CA
                 if (pack.sound == Sound.Bgm)
                     pack.source.Play();
             }
+
+
+            PlayerPrefs.SetInt("isSound", 1);
         }
 
 
@@ -144,6 +161,7 @@ namespace CA
                 if (pack.sound == Sound.Bgm)
                     pack.source.Stop();
             }
+            PlayerPrefs.SetInt("isSound", 0);
         }
 
     }

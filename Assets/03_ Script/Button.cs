@@ -7,10 +7,11 @@ namespace CA
 {
     public class Button : MonoBehaviour
     {
+        /// <summary>
+        /// 재료 타입
+        /// </summary>
         [SerializeField]
         private Piece.Type type;
-
-
 
 
         private RectTransform tr;
@@ -34,15 +35,11 @@ namespace CA
 
         private void Awake()
         {
-
             tr = GetComponent<RectTransform>();
         }
 
         public void OnTouchBegan()
         {
-            //if (SoundManager.Instance != null)
-            //    SoundManager.Instance.StartBurger(type);
-
             if (GameSceneManager.Instance != null)
                 GameSceneManager.Instance.addPiece(type);
         }

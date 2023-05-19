@@ -424,7 +424,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7635474478785460093}
-        m_MethodName: soundOff
+        m_MethodName: soundOn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -841,7 +841,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7635474478785460093}
-        m_MethodName: soundOn
+        m_MethodName: soundOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

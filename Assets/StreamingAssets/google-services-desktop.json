@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "531352213933",
+    "project_id": "i-m-a-burger",
+    "storage_bucket": "i-m-a-burger.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:531352213933:android:1ffe5048a8ed5b75eda924",
+        "android_client_info": {
+          "package_name": "com.crablab.imb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "531352213933-mdgj8gma97u1qa9tp9pviehques9l09v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8gi7a2xq4nX9W321gU0zTM_VZJoX96P4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "531352213933-mdgj8gma97u1qa9tp9pviehques9l09v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

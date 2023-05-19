@@ -53,19 +53,9 @@ public class AdmobManager : MonoBehaviour
     {
         Debug.unityLogger.logEnabled = true;
 
-        // Initialize the Google Mobile Ads SDK.
         MobileAds.Initialize(initStatus =>
         {
-            Dictionary<string, AdapterStatus> dic = initStatus.getAdapterStatusMap();
-
-            foreach (KeyValuePair<string, AdapterStatus> pair in dic)
-            {
-                log("ADMOB initialize adapter : {0}, desc : {1} latency : {2} statue : {3}", pair.Key, pair.Value.Description, pair.Value.Latency, pair.Value.InitializationState);
-            }
-
             createBannerAd(AdSize.Banner, AdPosition.Bottom, ConstantData.ADMOB_BANNER_UNIT_ID);
-            //createMiddleAd(AdSize.MediumRectangle, AdPosition.Top, ConstantData.ADMOB_MIDDLE_UNIT_ID);
-           // createFullAd(ConstantData.ADMOB_INTER_UNIT_ID);
             createRewardAd(ConstantData.ADMOB_REWARD_UNIT_ID);
         });
     }
@@ -106,7 +96,6 @@ public class AdmobManager : MonoBehaviour
     {
         mBannerView = null;
 
-        // 애드몹 광고를 호출 한다.
         createBannerAdmob();
     }
 
@@ -152,16 +141,12 @@ public class AdmobManager : MonoBehaviour
 
     public void OnInterAdOpening(object sender, System.EventArgs args)
     {
-        // 사운드 음소거 / サウンドを消す
-        //Android는 자체적으로 음소거를 사용.
+
 
     }
 
     public void OnInterAdClosed(object sender, System.EventArgs args)
     {
-        // 사운드 복구 / サウンド復旧
-
-        //Android는 자체적으로 음소거를 사용.
 
         bInterAdReady = false;
 
@@ -178,7 +163,6 @@ public class AdmobManager : MonoBehaviour
 
         mFullView = null;
 
-        // 애드몹 광고를 호출 한다.
         createFullAdmob();
     }
 
@@ -210,7 +194,6 @@ public class AdmobManager : MonoBehaviour
 
     private void OnInterAdFailedToLoad(object sender, AdFailedToLoadEventArgs e)
     {
-        log("OnInterAdFailedToLoad : {0}", e.LoadAdError.GetMessage());
     }
 
     #endregion
@@ -286,17 +269,11 @@ public class AdmobManager : MonoBehaviour
     {
         isRewardReady = true;
 
-        //버튼 온오프
-        //adRewardBtnSetting();
     }
 
     public void OnRewardBasedVideoOpening(object sender, System.EventArgs args)
     {
-        // 사운드 음소거 / サウンドを消す
-        //setUnityPause(true);
 
-
-        Adapter.Instance.newRewarded = Adapter.RewardedState.Show;
 
     }
 
@@ -326,8 +303,6 @@ public class AdmobManager : MonoBehaviour
 
     public void OnRewardBasedVideoClosed(object sender, System.EventArgs args)
     {
-        // 사운드 복구 / サウンド復旧
-
 
         createRewardAd(ConstantData.ADMOB_REWARD_UNIT_ID);
 
@@ -335,10 +310,6 @@ public class AdmobManager : MonoBehaviour
         {
             bRewardDone = false;
         }
-
-        if (Adapter.Instance.newRewarded != Adapter.RewardedState.Success)
-            Adapter.Instance.newRewarded = Adapter.RewardedState.Fail;
-
 
     }
 
@@ -375,31 +346,6 @@ public class AdmobManager : MonoBehaviour
 
     #endregion
 
-
-
-
-    //		#endregion
-
-
-
-
-    #region AdRequest
-
-
-
-
-    #endregion
-
-
-    #region Debug
-
-    private void log(string format, params object[] args)
-    {
-        string text = string.Format(format, args);
-        Debug.LogFormat("{0} - {1}", GetType().Name, text);
-    }
-
-    #endregion
 
 
 }
