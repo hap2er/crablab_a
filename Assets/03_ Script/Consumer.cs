@@ -5,40 +5,18 @@ using UnityEngine;
 
 namespace CA
 {
-
+    /// <summary>
+    /// 전광판
+    /// </summary>
     public class Consumer : MonoBehaviour
     {
-
-        RectTransform tr;
-        public ImageAnimation.Package pack;
-
+        
+        private RectTransform tr;
 
         public void Start()
         {
             tr = this.gameObject.GetComponent<RectTransform>();
-            StartCoroutine(anim());
-        }
-
-   
-
-        IEnumerator anim()
-        {
-
-            while (true)
-            {
-                tr.anchoredPosition = pack.StartPosition;
-
-                Vector2 dist = pack.EndPosition - pack.StartPosition;
-                dist = dist / 100.0f;
-
-                for (int i = 0; i < 100; i++)
-                {
-                    tr.anchoredPosition += dist;
-                    yield return new WaitForSeconds(0.1f);
-                }
-                tr.anchoredPosition = pack.EndPosition;
-
-            }
+            HV.MotionHelper.DoMove(transform,new Vector2(300,0),new Vector2(-1680,0), 10, true, false,true);
         }
     }
 
