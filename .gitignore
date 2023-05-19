@@ -80,7 +80,7 @@ proj.android/libraries/*/*.iml
 proj.android/libraries/*/local.properties
 
 
-*.apk
+
 *.aab
 
 # Generated documentation, it can be regenerated using doxygen #
